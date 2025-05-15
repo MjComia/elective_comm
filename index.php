@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+<?php
 include 'conn.php';
 
 echo "<h1>Welcome to the Medallion Theatre Database</h1>";
@@ -87,7 +94,7 @@ if ($result->num_rows > 0) {
 
 echo "</table>";
  ?>
-
+<a href="logout.php">Logout</a>
 <?php 
 include 'footer.php';
 ?>

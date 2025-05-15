@@ -35,6 +35,16 @@ CREATE TABLE IncidentsReported (
     FOREIGN KEY (ShiftID) REFERENCES Shifts(ShiftID)
 );
 
+CREATE TABLE users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) UNIQUE NOT NULL,
+    Password VARCHAR(255) NOT NULL  -- Hashed password
+);
+
+INSERT INTO users (Username, Password) VALUES
+('admin', '$2y$10$sZqzXs1iA1M/.ZK5sKLVcOMhuyKZZbCrZSK2EIVbAq.b.yDH4jGOW'); -- Password: admin123
+
+
 INSERT INTO SecurityPersonnel (Name) VALUES 
 ('Carlos Mendoza'),
 ('Angela Ramos'),
